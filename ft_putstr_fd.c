@@ -6,7 +6,7 @@
 /*   By: gpallare <gpallare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 10:30:54 by gpallare          #+#    #+#             */
-/*   Updated: 2023/09/22 10:31:40 by gpallare         ###   ########.fr       */
+/*   Updated: 2023/09/22 11:14:52 by gpallare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,14 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
+	int	i;
 
+	i = 0;
+	if (!s)
+		return ;
+	while (s[i])
+	{
+		ft_putchar_fd(s[i], fd);
+		i++;
+	}
 }
