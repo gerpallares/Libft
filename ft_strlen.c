@@ -6,7 +6,7 @@
 /*   By: gpallare <gpallare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 13:01:12 by gpallare          #+#    #+#             */
-/*   Updated: 2023/09/22 11:52:48 by gpallare         ###   ########.fr       */
+/*   Updated: 2023/09/26 14:42:56 by gpallare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 size_t	ft_strlen(const char *str)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while (str[i])
+	while (*str++)
 	{
 		i++;
 	}

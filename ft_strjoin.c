@@ -6,7 +6,7 @@
 /*   By: gpallare <gpallare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 09:48:26 by gpallare          #+#    #+#             */
-/*   Updated: 2023/09/21 09:49:07 by gpallare         ###   ########.fr       */
+/*   Updated: 2023/09/26 14:20:58 by gpallare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	if (!ret)
 		return (0);
 	ft_strlcpy(ret, s1, len + 1);
-	ft_strlcpy(ret, s2, len + 1);
+	ft_strlcat(ret, s2, len + 1);
 	return (ret);
 }
