@@ -6,45 +6,32 @@
 /*   By: gpallare <gpallare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 11:57:22 by gpallare          #+#    #+#             */
-/*   Updated: 2023/09/28 12:51:56 by gpallare         ###   ########.fr       */
+/*   Updated: 2023/09/28 14:54:35 by gpallare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_token_length(const char *s, char c)
+static size_t	ft_token_len(const char *s, char c)
 {
-	size_t	ret;
+	size_t	matrix;
 
-	ret = 0;
+	matrix = 0;
 	while (*s)
 	{
 		if (*s != c)
 		{
-			++ret;
+			++matrix;
 			while (*s && *s != c)
-			{
 				++s;
-			}
 		}
 		else
 			++s;
 	}
-	return (ret);
+	return (matrix);
 }
 
-static char	**free_matrix(char **matrix, int i)
-{
-	while (i >= 0)
-	{
-		free(matrix[i]);
-		i--;
-	}
-	free(matrix);
-	return (0);
-}
-
-char	**ft_split(char const *s, char c)
+char	**ft_split(const char *s, char c)
 {
 	char	**matrix;
 	size_t	i;
@@ -53,9 +40,9 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (0);
 	i = 0;
-	matrix = (char **)malloc(sizeof(char *) * (ft_token_length(s, c) + 1));
+	matrix = malloc(sizeof(char *) * (ft_token_len(s, c) + 1));
 	if (!matrix)
-		return (NULL);
+		return (0);
 	while (*s)
 	{
 		if (*s != c)
@@ -64,16 +51,15 @@ char	**ft_split(char const *s, char c)
 			while (*s && *s != c && ++len)
 				++s;
 			matrix[i++] = ft_substr(s - len, 0, len);
-			if (!matrix[i])
-				return (free_matrix(matrix, i));
 		}
-		++s;
+		else
+			++s;
 	}
 	matrix[i] = 0;
 	return (matrix);
 }
 
-int main(void)
+/*int main(void)
 {
 	char	*str;
 	char	word;
@@ -90,4 +76,4 @@ int main(void)
 		i++;
 	}
 	return (0);
-}
+}*/
